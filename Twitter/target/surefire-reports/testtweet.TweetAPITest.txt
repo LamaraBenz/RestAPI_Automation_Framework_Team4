@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: testtweet.TweetAPITest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.283 s <<< FAILURE! - in testtweet.TweetAPITest
+testtweet.TweetAPITest.testDeleteTweet  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.NullPointerException
+	at testtweet.TweetAPITest.testDeleteTweet(TweetAPITest.java:60)
+
+testtweet.TweetAPITest.testUserCanNotTweetTheSameTweetTwiceInARow  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException
+	at testtweet.TweetAPITest.testUserCanNotTweetTheSameTweetTwiceInARow(TweetAPITest.java:37)
+
+testtweet.TweetAPITest.testUserCanTweetSuccessfully  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.NullPointerException
+	at testtweet.TweetAPITest.testUserCanTweetSuccessfully(TweetAPITest.java:25)
+
