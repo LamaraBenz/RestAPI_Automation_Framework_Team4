@@ -1,11 +1,8 @@
 package base;
-
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
-
 public class TwitterAPIClient {
-
     protected String apiKey;
     protected String apiSecretKey;
     protected String accessToken;
@@ -13,7 +10,6 @@ public class TwitterAPIClient {
     protected Properties properties;
     protected InputStream inputStream;
     protected String baseUri;
-
     public TwitterAPIClient() {
         this.baseUri = "https://api.twitter.com/1.1";
         this.properties=new Properties();
@@ -37,6 +33,4 @@ public class TwitterAPIClient {
            }
        }
     }
-
-
 }
