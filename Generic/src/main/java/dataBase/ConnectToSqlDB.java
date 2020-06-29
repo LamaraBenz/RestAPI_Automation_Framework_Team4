@@ -15,10 +15,17 @@ public class ConnectToSqlDB {
         Properties prop = new Properties();
         //InputStream ism = new FileInputStream("/secret.properties");
         //InputStream ism = new FileInputStream("../Generic/src/main/secret.properties");
-        InputStream ism = new FileInputStream("/Users/ashorouali/IdeaProjects/RestAPI_Automation_Framework_Team4/Generic/src/main/java/secret.properties");
+
+        // InputStream ism = new FileInputStream("/Users/ashorouali/IdeaProjects/RestAPI_Automation_Framework_Team4/Generic/src/main/java/secret.properties");
+        // prop.load(ism);
+        // ism.close();
+        // return prop; }
+//=======
+        InputStream ism = new FileInputStream("C:\\Users\\lamar\\Desktop\\RestAPI_Automation_Framework_Team4\\Twitter\\src\\main\\secret.properties");
         prop.load(ism);
         ism.close();
-        return prop; }
+        return prop;
+    }
     public static Connection connectToSqlDatabase() throws IOException, SQLException, ClassNotFoundException {
         Properties prop = loadProperties();
         String driverClass = prop.getProperty("MYSQLJDBC.driver");
@@ -28,10 +35,10 @@ public class ConnectToSqlDB {
         Class.forName(driverClass);
         connect = DriverManager.getConnection(url,userName,password);
         System.out.println("Database is connected");
-        return connect; }
+        return connect;
+    }
     public static List<String> readDataBase(String tableName, String columnName)throws Exception {
         List<String> data = new ArrayList<String>();
-
         try {
             connectToSqlDatabase();
             statement = connect.createStatement();
@@ -44,7 +51,6 @@ public class ConnectToSqlDB {
         }
         return data;
     }
-
     private static void close() {
         try{
             if(resultSet != null){
@@ -60,7 +66,6 @@ public class ConnectToSqlDB {
 
         }
     }
-
     private static List<String> getResultSetData(ResultSet resultSet2, String columnName) throws SQLException {
         List<String> dataList = new ArrayList<String>();
         while(resultSet.next()){
@@ -93,7 +98,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
     public void insertDataFromStringToSqlTable(String ArrayData, String tableName, String columnName)
     {
         try {
@@ -109,7 +113,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
     public List<String> directDatabaseQueryExecute(String passQuery, String dataColumn)throws Exception {
         List<String> data = new ArrayList<String>();
 
@@ -125,7 +128,6 @@ public class ConnectToSqlDB {
         }
         return data;
     }
-
     public void insertDataFromArrayListToSqlTable(List<String> list, String tableName, String columnName)
     {
         try {
@@ -149,8 +151,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
-
     public void insertProfileToSqlTable(String tableName, String columnName1, String columnName2)
     {
         try {
@@ -169,7 +169,6 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
-
     public static List<User> readUserProfileFromSqlTable()throws IOException, SQLException, ClassNotFoundException {
         List<User> list = new ArrayList<>();
         User user = null;
@@ -231,4 +230,7 @@ public class ConnectToSqlDB {
     public static void main(String[][] args)throws IOException, SQLException, ClassNotFoundException {
         List<Airlines> list = readUnitedAirLinesProfileFromSqlTable();
         for(Airlines user:list){
-            System.out.println(user.getFrom() + " " + user.getTo()); } }}
+            System.out.println(user.getFrom() + " " + user.getTo()); } }
+   
+}
+
