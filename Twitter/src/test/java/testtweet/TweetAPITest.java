@@ -1,10 +1,13 @@
 package testtweet;
 
 
+import base.DataProviders;
+import io.restassured.response.ResponseBody;
 import io.restassured.response.ValidatableResponse;
-import org.junit.BeforeClass;
+//import org.junit.BeforeClass;
 import org.testng.Assert;
 //import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import tweet.TweetAPIClient;
 
@@ -46,25 +49,38 @@ public class TweetAPITest {
         String expectedMessage="Status is a duplicate.";
         String actualMessage=response.extract().body().path("errors[0].message");
         Assert.assertEquals(actualMessage,expectedMessage);
-
-
     }
     @Test
     public void testDeleteTweet(){
 
+        String tweet="Tweet "+ UUID.randomUUID().toString();
+     //   ValidatableResponse response=this.tweetAPIClient.createTweet(tweet).assertThat()
+      //          .body("id",equals());
 
-//        String tweet="Tweet "+ UUID.randomUUID().toString();
-//        ValidatableResponse response=this.tweetAPIClient.createTweet(tweet).assertThat()
-//                .body("id",equals());
-
-        ValidatableResponse response=this.tweetAPIClient.deleteTweet(1273434027597484038L);
-
-
-
+        ValidatableResponse response=this.tweetAPIClient.deleteTweet(1277118763817721856L);
 
     }
 
+    @Test(enabled = true, dataProvider = "RestApiUsers usernames", dataProviderClass = DataProviders.class)
+    public void testSearchTweets(String username) {
+        String userId = "@" + username;
+        ValidatableResponse response = this.tweetAPIClient.searchTweets(userId);
+        ResponseBody body = (ResponseBody) response.extract().body();
+        System.out.println("Response Body is: " + body.asString());
+        String json = response.extract().contentType();
+        System.out.println(json);
+        int actualResponseCode = response.extract().statusCode();
+        int expectedResponseCode = 200;
+        Assert.assertEquals(actualResponseCode, expectedResponseCode);
+    }
 
+
+
+    @Test(dataProvider = "getTestData",dataProviderClass = DataProviders.class)
+    public void TestListOfTweets(String Flights){
+        tweetAPIClient.createListTweets(Flights );
+        System.out.println(Flights+"---->>"+ tweetAPIClient.createListTweets(Flights ));
+    }
 
 
 
