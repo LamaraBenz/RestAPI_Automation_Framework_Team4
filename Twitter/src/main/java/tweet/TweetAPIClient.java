@@ -36,6 +36,20 @@ public class TweetAPIClient  extends TwitterAPIClient {
                 .when().post(this.baseUri+this.DELETE_TWEET_ENDPOINT)
                 .then();
     }
+    // Create a List of tweets from user's twitter
+    public ValidatableResponse createListTweets(String Flights ){
+        return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
+                .param("status",Flights )
+                .when().post(this.baseUri+this.CREATE_TWEET_ENDPOINT)
+                .then();
+    }
+    private final String SEARCH_TWEETS_ENDPOINT = "/search/tweets.json";
+    public ValidatableResponse searchTweets(String atUsername){
+        return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
+                .param("q", atUsername)
+                .when().get(this.baseUri+this.SEARCH_TWEETS_ENDPOINT)
+                .then();
+    }
 
 
 
