@@ -14,6 +14,9 @@ public class TweetAPIClient  extends TwitterAPIClient {
     private final String CREATE_TWEET_ENDPOINT="/statuses/update.json";
     private final String DELETE_TWEET_ENDPOINT="/statuses/destroy.json";
     private final String GET_USER_TWEETS_ENDPOINT="statuses/user_timeline.json";
+    private final String SEARCH_TWEETS_ENDPOINT = "/search/tweets.json";
+    private final String ADD_FAVORITES_ENDPOINT = "/search/tweets.json";
+    private final String GET_PLACES_NEAR_ENDPOINT = "/geo/reverse_geocode.json";
 
     public ValidatableResponse getUserTimelineTweets(){
         return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
@@ -36,9 +39,22 @@ public class TweetAPIClient  extends TwitterAPIClient {
                 .when().post(this.baseUri+this.DELETE_TWEET_ENDPOINT)
                 .then();
     }
+    public ValidatableResponse searchTweets(String atUsername){
+        return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
+                .param("q", atUsername)
+                .when().get(this.baseUri+this.SEARCH_TWEETS_ENDPOINT)
+                .then(); }
 
-
-
+    public ValidatableResponse ADDFAVORITESENDPOINT(String atUsername){
+        return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
+                .param("q", atUsername)
+                .when().get(this.baseUri+this.ADD_FAVORITES_ENDPOINT)
+                .then(); }
+    public ValidatableResponse GETPLACESNEARENDPOINT(String atUsername){
+        return given().auth().oauth(this.apiKey, this.apiSecretKey, this.accessToken, this.accessTokenSecret)
+                .param("q", atUsername)
+                .when().get(this.baseUri+this.GET_USER_TWEETS_ENDPOINT)
+                .then(); }
 
 
 }

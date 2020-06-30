@@ -1,5 +1,4 @@
 package testpost;
-
 import io.restassured.response.ValidatableResponse;
 import org.apache.http.HttpStatus;
 import org.json.simple.JSONObject;
@@ -10,14 +9,11 @@ import posts.PostPojo;
 import posts.PostsAPIClient;
 
 public class TestPostsAPI {
-
     private PostsAPIClient postsAPIClient;
-
     @BeforeClass
     public void setUpPostsAPI() {
         this.postsAPIClient = new PostsAPIClient();
     }
-
     // write a test that calls on PostsAPIClient.getAllPosts()
     // also check to see if it returns a 200 status code
     @Test
@@ -33,7 +29,6 @@ public class TestPostsAPI {
         ValidatableResponse response = this.postsAPIClient.createPost(obj);
         response.statusCode(HttpStatus.SC_CREATED);
     }
-
     @Test
     public void testUserCanCreateAPostSuccessfully() {
         int userId = 11;
@@ -46,7 +41,6 @@ public class TestPostsAPI {
         json.put("body", body);
         ValidatableResponse response = this.postsAPIClient.createPost(json);
         response.statusCode(HttpStatus.SC_CREATED);
-
         int actualUserId = response.extract().body().path("userId");
         String actualTitle = response.extract().body().path("title");
         String actualBody = response.extract().body().path("body");

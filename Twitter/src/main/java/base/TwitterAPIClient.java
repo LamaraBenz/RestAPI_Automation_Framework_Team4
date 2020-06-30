@@ -20,7 +20,7 @@ public class TwitterAPIClient {
         inputStream=null;
        try {
            //Path of the Secret.properties file
-        this.inputStream=new FileInputStream("src\\main\\secret.properties");
+        this.inputStream=new FileInputStream("src/main/secret.properties");
         this.properties.load(this.inputStream);
         this.apiKey=this.properties.getProperty("apiKey");
         this.apiSecretKey=this.properties.getProperty("apiSecretKey");

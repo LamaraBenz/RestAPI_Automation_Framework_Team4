@@ -24,7 +24,7 @@
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
                 <version>7.1.0</version>
-                <scope>test</scope>
+<!--                <scope>test</scope>-->
             </dependency>
             <!--For using Rest assured-->
             <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -32,7 +32,7 @@
                 <groupId>io.rest-assured</groupId>
                 <artifactId>rest-assured</artifactId>
                 <version>4.3.0</version>
-                <scope>test</scope>
+<!--                <scope>test</scope>-->
             </dependency>
             <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured-all -->
             <dependency>
@@ -110,6 +110,71 @@
                 <artifactId>json-schema-validator</artifactId>
                 <version>4.3.0</version>
             </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version> 8.0.20</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aventstack</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>4.0.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.relevantcodes</groupId>
+                <artifactId>extentreports</artifactId>
+                <version>2.41.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.10</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.7</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.apache.commons</groupId>-->
+<!--                <artifactId>commons-lang3</artifactId>-->
+<!--                <version>3.10</version>-->
+<!--            </dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<!--            <dependency>-->
+<!--                <groupId>commons-io</groupId>-->
+<!--                <artifactId>commons-io</artifactId>-->
+<!--                <version>2.7</version>-->
+<!--            </dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.poi</groupId>-->
+<!--                <artifactId>poi-ooxml</artifactId>-->
+<!--                <version>4.1.2</version>-->
+<!--            </dependency>-->
+            <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.poi</groupId>-->
+<!--                <artifactId>poi</artifactId>-->
+<!--                <version>4.1.2</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
     <build>
